@@ -1,0 +1,13 @@
+<?php $__env->startSection('content'); ?>
+<h1>Login With Controller</h1>
+<a href="<?php echo(route('users.login')) ?>">login</a>
+<?php //var_dump($users->toArray($users)); ?>
+<ul>
+<!-- <?php foreach($users as $key => $value): ?> -->
+	<li>
+		<!-- <?php echo e($value['email']); ?>  -->
+	</li>
+<!-- <?php endforeach; ?> -->
+</ul>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
