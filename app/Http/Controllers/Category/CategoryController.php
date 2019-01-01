@@ -26,13 +26,13 @@ class CategoryController extends Controller
         if (is_null($category)) {
             return response()->json(null,404);
         }
-        return response()->json(Category::findOrFail($id), 200);
+        return response()->json($category,200);
     }
 
     public function store(Request $request) {
         
         $validator = $this->validate($request, [
-            'title' => 'required|max:3',
+            'title' => 'required|min:3|max:15',
         ]);
 
         if (!$validator)

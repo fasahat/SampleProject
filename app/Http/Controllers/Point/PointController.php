@@ -44,12 +44,8 @@ class PointController extends Controller
 
     public function store(){
        
-
-      $path = storage_path() . "/app/points.geojson"; // ie: /var/www/laravel/app/storage/json/filename.json
-
+        $path = storage_path() . "/app/points.geojson"; 
         $json = json_decode(file_get_contents($path), true); 
-        //do not convert to array
-       
 
         foreach ($json['features'] as $key => $value) {
             Point::create(['lat' => $value['geometry']['coordinates'][1] , 'lng' => $value['geometry']['coordinates'][0]]);
@@ -64,7 +60,6 @@ class PointController extends Controller
             'Points' => $point->toArray(),
             200
         ));
-
         return $point;
     }
 
